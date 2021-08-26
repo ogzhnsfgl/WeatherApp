@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
-
+require("dotenv").config();
 const WeatherDataContext = createContext();
 
 const WeatherDataProvider = ({ children }) => {
@@ -14,7 +14,7 @@ const WeatherDataProvider = ({ children }) => {
   /* UseEffect for ComponentDidMount */
   useEffect(() => {
     axios(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=c3bd60f08b2d73cfb02979b704cee04a`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${process.env.REACT_APP_APP_ID}`
     )
       .then(({ data }) => setweatherData(data.daily))
       .catch((e) => console.log(e));
