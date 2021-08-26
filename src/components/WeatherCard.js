@@ -54,16 +54,16 @@ const WeatherCard = () => {
             <div className="card-details">
               <span className="temp-day">
                 <p className="current">{day.weather[0].main}</p>
-                {day.temp.day}
+                {day.temp.day.toFixed(1)}
               </span>
 
               <span className="temp-max-min">
                 <p className="max">Max</p>
-                {day.temp.max}
+                {day.temp.max.toFixed(1)}
               </span>
               <span className="temp-max-min">
                 <p className="max">Min</p>
-                {day.temp.min}
+                {day.temp.min.toFixed(1)}
               </span>
             </div>
           </div>
