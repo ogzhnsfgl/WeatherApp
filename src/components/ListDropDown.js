@@ -1,5 +1,5 @@
 import _, { keys } from "lodash";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useWeatherData } from "../context/WeatherDataContext";
 import Geolocation from "./Geolocation";
 
@@ -16,7 +16,11 @@ const ListDropDown = () => {
   const { setCityCode } = useWeatherData();
 
   function handleClick(e) {
-    setCityCode({ lon: cityList[`${e}`].lon, lat: cityList[`${e}`].lat });
+    e.preventDefault();
+    setCityCode({
+      lon: cityList[`${e.target.value}`].lon,
+      lat: cityList[`${e.target.value}`].lat,
+    });
   }
 
   const location = Geolocation();
@@ -45,9 +49,8 @@ const ListDropDown = () => {
     <div className="drop-down container">
       <select
         id="city"
-        onChange={(e) => handleClick(e.target.value)}
+        onChange={(e) => handleClick(e)}
         className="drop-down list"
-        value="konum"
       >
         {keys(cityList).map((city, key) => {
           if (city === "konum") {
@@ -57,7 +60,7 @@ const ListDropDown = () => {
                 name={city}
                 value={city}
                 className="dropdown-list-item"
-                // selected
+                selected
               >
                 {_.startCase(city)}
               </option>

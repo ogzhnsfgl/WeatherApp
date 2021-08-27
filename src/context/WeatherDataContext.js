@@ -11,7 +11,7 @@ const WeatherDataProvider = ({ children }) => {
   /* Weather Data */
   const [weatherData, setweatherData] = useState({});
 
-  /* UseEffect for ComponentDidMount */
+  /* UseEffect lon,lat changes */
   useEffect(() => {
     axios(
       `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${process.env.REACT_APP_APP_ID}`
