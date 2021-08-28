@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { useCity } from "../context/CityContext";
 
 const Geolocation = () => {
+  const { setCity } = useCity();
+
   const [location, setLocation] = useState({
     loaded: false,
     coordinates: { lat: "", lon: "" },
@@ -12,6 +15,14 @@ const Geolocation = () => {
         lat: location.coords.latitude,
         lon: location.coords.longitude,
       },
+    });
+    setCity({
+      id: 99,
+      name: "Konumunuz",
+      latitude: location.coords.latitude,
+      longitude: location.coords.longitude,
+      population: 0,
+      region: "NaN",
     });
   };
 

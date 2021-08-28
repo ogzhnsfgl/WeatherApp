@@ -1,159 +1,199 @@
-h1 {
-  font-size: 3rem;
+@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@800&display=swap");
+.App {
+  display: flex;
+  width: 1100px;
+  height: 70vh;
+  flex-direction: column;
+  margin: 10px auto;
+}
+
+.weather-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 10% 30% 30% 30%;
+  grid-template-areas:
+    "header header header"
+    "today today yesterday"
+    "weather-card weather-card weather-card";
+  column-gap: 7px;
+  row-gap: 8px;
+}
+
+.header-container {
+  grid-area: header;
+  display: flex;
+}
+
+.header-container > select {
+  width: 50%;
+  height: 35px;
+  border: 2px solid #788a7c;
+  font-size: 1.2rem;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  color: #ec6e4c;
   font-weight: 600;
-  border-bottom: 1px solid black;
-  text-align: center;
-  margin: 3rem;
+  background-color: #385053;
 }
 
-.main-container {
+.header-container > option {
+  color: #4dc266;
+}
+
+.weather-list-container {
+  grid-area: weather-card;
   display: flex;
-  flex-direction: column;
-  max-width: 1500px;
-  height: 100vh;
-  margin: auto auto;
 }
 
-.dropdown-container {
+.weather-card {
   display: flex;
-  width: 50%;
-  align-items: center;
-}
-.drop-down {
-  width: 50%;
-
-  align-self: flex-start;
-  margin: 1rem 1rem;
   padding: 1rem;
-  margin-bottom: 0;
-}
-
-.dropdown-list-item {
-  height: 1.5rem;
-  font-size: 0.9rem;
-}
-
-.card-container {
-  display: flex;
-  margin: 1rem auto;
-  padding: 1.5rem;
-  max-width: 100%;
-}
-@media (max-width: 800px) {
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: columns;
-  }
-
-  .card-container .card-item {
-    flex: 1 auto;
-    margin: 2rem 1rem;
-  }
-
-  .dropdown-container {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    width: -webkit-fill-available;
-  }
-  .drop-down {
-    flex-grow: 2;
-    border: 1px solid rgba(0, 0, 0, 0.329);
-  }
-  .dropdown-list-item {
-    height: 1rem;
-    font-size: 1rem;
-  }
-}
-
-.card-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid rgba(46, 85, 104, 0.527);
-  border-collapse: collapse;
-  width: 200px;
+  margin: 0.5rem;
   height: 200px;
-  padding: 1rem;
+  background-color: rgba(53, 79, 82, 0.8);
+
+  border: 2px solid #84a98c;
+  -webkit-box-shadow: -5px -2px 7px 2px rgba(132, 169, 140, 0.76);
+  box-shadow: -5px -2px 7px 2px rgba(132, 169, 140, 0.76);
+  border-radius: 2%;
+  width: 100%;
   position: relative;
-  margin: 0 0.5rem;
-  border-radius: 9%;
-  background: rgba(41, 39, 39, 0.274);
+
+  color: aliceblue;
 }
-.card-item:hover {
-  border: 2px solid rgba(157, 233, 243, 0.705);
+
+.weather-card:hover {
+  -webkit-box-shadow: -2px -2px 7px 4px rgba(112, 233, 138, 0.76);
+  box-shadow: -2px -2px 7px 4px rgba(112, 219, 135, 0.76);
+  background-color: rgba(20, 50, 53, 0.54);
 }
 
 .card-image {
-  /* background-color: blue; */
-  display: flex;
-  width: 100%;
-  height: 40%;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-
-  margin-top: 0rem;
-}
-
-.card-title {
   position: absolute;
   top: -25px;
-  margin-top: 1rem auto;
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: rgb(18, 65, 88);
+  left: -25px;
 }
-.card-details {
+.card-image > img {
+  width: 200px;
+}
+
+.card-date {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
   position: absolute;
-  bottom: -5px;
-  padding: 0.5rem;
-  margin-top: 1rem auto;
+  top: 10%;
+  left: 50%;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #84a98c;
   text-align: center;
-  align-items: flex-end;
-  color: rgb(31, 28, 25);
+}
+
+.card-date > p {
   width: 100%;
 }
+.card-temp {
+  position: absolute;
 
-.card-details span::after {
-  content: " °C";
-  opacity: 0.5;
-  font-size: 0.7rem;
-  text-align: start;
-  vertical-align: super;
-}
-
-.temp-day {
-  margin-top: 1rem;
-  flex: 1 100%;
-  font-size: 1.2rem;
-  font-weight: 600;
-  border-bottom: 2px solid rgb(215, 236, 247);
-  letter-spacing: 1px;
-}
-
-.temp-max-min {
-  flex: 1 auto;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  font-weight: 400;
-  font-style: italic;
-  opacity: 0.6;
-  letter-spacing: 0;
-}
-
-.current {
-  letter-spacing: 1px;
-}
-
-/* .card-details > span {
-  flex: 1 1 auto;
+  top: 50%;
+  left: 50%;
   display: flex;
-  flex-direction: column;
-  margin: 3px;
-  /* width: 40%; */
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  text-align: center;
+}
+
+.card-temp > p {
+  width: 50%;
+  padding: 0.25rem;
+  font-size: 0.9rem;
+  color: rgb(202, 210, 197);
+}
+
+.card-temp :first-child {
+  margin: auto 0;
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: rgb(202, 210, 197);
+}
+.card-temp > p::after {
+  content: "°C";
+  opacity: 0.6;
+}
+
+.card-description {
+  position: absolute;
+  bottom: 10%;
+  left: -15px;
+  font-weight: 600;
+  text-transform: capitalize;
+  width: 175px;
+  text-align: center;
+}
+
+.weather-card-1 {
+  display: flex;
+  grid-area: today;
+  background-color: rgba(20, 50, 53, 0.884);
+}
+
+.weather-card-1 > .card-date {
+  display: inline-block;
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #84a98c;
+  margin: 1rem;
+}
+.weather-card-1 > .card-date::before {
+  content: "Today";
+  color: #4dc266;
+  font-size: 1.5rem;
+}
+
+.weather-card-1 > .card-temp {
+  position: absolute;
+  top: 25%;
+  right: 10%;
+  font-weight: 600;
+}
+
+.weather-card-1 > .card-temp > p {
+  font-size: 1.4rem;
+  color: #54df72;
+}
+
+.weather-card-2 {
+  grid-area: yesterday;
+  background-color: rgba(36, 71, 75, 0.884);
+}
+
+.loading {
+  text-align: center;
+  font-size: 6rem;
+  font-weight: bolder;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  color: #4dc266;
+}
+
+.banner {
+  text-align: center;
+  font-family: "Azeret Mono", monospace;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding: 2rem;
+  color: rgb(255, 255, 255);
+  font-size: 65px;
+  color: #ec6e4c;
+  text-shadow: 4px 3px 9px rgba(150, 150, 150, 1);
+  opacity: 0.8;
+}
