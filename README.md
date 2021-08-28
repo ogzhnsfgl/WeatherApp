@@ -1,5 +1,9 @@
 # Introduction
 
+<img style="float:right; padding-top:50px" align="center" alt="GIF" src="https://i.imgur.com/OGoLDCB.gif"  />
+
+
+
 Weather App created with React.
 
 Weather App displays current and next seven-days weather forecast of your city using OpenWeather API.
