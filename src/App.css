@@ -129,10 +129,10 @@
 .card-description {
   position: absolute;
   bottom: 10%;
-  left: -15px;
+  left: -5px;
   font-weight: 600;
   text-transform: capitalize;
-  width: 175px;
+  width: 150px;
   text-align: center;
 }
 
